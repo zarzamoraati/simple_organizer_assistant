@@ -1,31 +1,27 @@
 
-from tasks import validate_directory,classifier,make_dir,move_files,clean_dir
-
-from utils import get_ENV
+from logic_def_3 import validate_directory, classifier, clean_dir
+from iter2.utils import get_ENV
+from utils import create_cat,dir_is_empty
 
 def assistant_organizer():
 # TODO - get origin path 
     origin=get_ENV(("DOWNLOAD_DIR"))[0]
 # TODO - Vlidate directory exists and not empty 
-    if not validate_directory(origin):
-        print("Invalid path or directory")
+    if not validate_directory(origin) or dir_is_empty(origin):
+        print("Invalid or empty directory")
         return 
-# TODO -  Classify stuff within a given directory into categories
-    else:
-        src_cat_paths=classifier(origin,("media","text"))
-# TODO - Cretae dedicate directories base on that categories 
-        categories=[cat for cat in src_cat_paths]
-        #print(categories)
-        dest_cat_paths=make_dir(cat_list=categories, origin_path=origin)
-# TODO - Move stuff to its correspond directorie
-        move_files(src_cat_paths,dest_cat_paths,origin=origin)
-# TODO - Remove all the stuff that not match in any categorie
-        clean_dir(origin)
-# TODO - Chck origin is empty 
+# TODO -  Classify stuff , create dedicate dirs and move stuff to them
+    else: 
+        cat_obj=create_cat()
+        state=classifier(origin_path=origin,categories=cat_obj)
+        if state :
+                clean_dir(origin)
+        else:
+             print("Something went wrong")
+             return
 
 
 assistant_organizer()
-#print(get_ENV(("DOWNLOAD_DIR")))
                                 
                     
             

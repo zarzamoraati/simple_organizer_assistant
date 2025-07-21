@@ -1,5 +1,5 @@
 from tasks import validate_directory,classifier,make_dir,move_files,clean_dir
-from utils import get_ENV
+from iter2.utils import get_ENV
 
 def assistant_organizer():
 # TODO - get origin path 

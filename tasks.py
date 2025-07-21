@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Dict,List
 import os 
-from utils import transfer_files
+from iter2.utils import transfer_files
 
 
 # TODO - Vlidate directory exists and not empty 

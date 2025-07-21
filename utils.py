@@ -1,14 +1,37 @@
-import shutil 
-from typing import Dict,List
-from dotenv import load_dotenv
 import os 
+from dotenv import load_dotenv
+from pathlib import Path
+from typing import Dict
 
-load_dotenv()
+def create_cat()->Dict:
+    category={"text":(".txt",".pdf",".epub"),"media":(".mp4",".avi",".jpg",".png",".gif",".mp3")}
+    return category
 
-def get_ENV(*args)->List[str]:
-    return [os.getenv(env_path) for env_path in args]
+def create_dir(parent_dir:str,target:str)->bool:
+    path_dir=os.path.join(parent_dir,target)
+    try:
+        Path.mkdir(Path(path_dir),parents=True)
+        return True
+    except Exception as e:
+        print(e)
+        return False
 
-def transfer_files(src_cat:Dict,cat,dest_cat,origin)->None: ## TODO move to utilities
-    for file_src_path in src_cat[cat]:
-        origin_path=os.path.join(origin,file_src_path)
-        shutil.move(origin_path,dest_cat[cat])
+        
+def check_path(path:str):
+    path_obj=Path(path)
+    return Path.exists(path_obj)    
+
+def get_origin_path(origin:str):
+    origin_path=get_ENV(path=origin)
+    return check_path(path=origin_path)
+    
+def get_ENV(path:str):
+    return os.getenv(path)
+    
+
+def dir_is_empty(path:str)->bool:
+    if len(os.listdir(path)) == 0:
+        return True
+    else:
+        return False
+
