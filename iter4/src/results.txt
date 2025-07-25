@@ -1,0 +1,13 @@
+1. first execution 
+    * Apllication runs as expected 
+    * Following the next workflow 
+        1. Decompose 
+        2. Grouping similar tasks on moudles
+            -structuring proyect
+        3. Defining interfaces and classes
+        4. Defing low level functions
+        5. Implementing low level functions
+            -testing them
+        6. Implementing classes 
+        7. Connecting everything
+        8. Running and test 

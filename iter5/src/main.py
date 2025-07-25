@@ -1,7 +1,13 @@
 from fastapi import FastAPI
-from models import MoveFile
 from organizer import FileOrganizer,Logger
 
+from pydantic import BaseModel,Field
+from typing import Optional
+
+
+class MoveFile(BaseModel):
+    source:Optional[str]=""
+    category:Optional[str]=""
 
 
 
