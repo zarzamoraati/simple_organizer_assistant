@@ -1,0 +1,15 @@
+## Final Iteration 
+
+    STAGE 1
+1. Write an app that :
+    * classify files within a directory 
+    * base on those categories create dedicate directories within 
+    * send each file to its directory 
+    * compress those directories
+    * OPTIONAL - clean origin directory
+
+    STAGE 2 
+
+    * Add a feature to upload compress files to the cloud 
+
+
