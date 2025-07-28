@@ -1,5 +1,5 @@
 from abc import ABC,abstractmethod
-from file_tasks import classifier, process_to_tar, compress_directories,move_compressed_files
+from file_tasks import classifier, process_to_tar, compress_directories,move_compressed_files,delete_subdirs
 
 class Organizer(ABC):
 
@@ -21,6 +21,8 @@ class PipeOrganizer(Organizer):
             ## TODO compress directories
                 compress_directories(origin=self.origin_path)
             ## TODO delete directoies
+                delete_subdirs(self.origin_path)
+            ## TODO move compressed files
                 move_compressed_files(self.origin_path,self.compress_dest)
                 
                 
