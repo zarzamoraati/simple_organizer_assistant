@@ -1,7 +1,12 @@
 from dotenv import load_dotenv
-import os
+import os 
+import json
 load_dotenv()
 
-ORIGIN_DIR=os.getenv("DOWNLOAD_DIR")
+password=os.getenv("PASS")
+json_file=os.getenv("JSON_FILE_NAME")
+keywords_string=os.getenv("KEYWORDS")
+keywords=json.loads(keywords_string)
 
-CATEGORIES={"File":(".txt",".pdf","epub"),"Media":(".avi",".mp4",".jpg",".png",".gif",".webp",".mp3")}
+origin_path=os.getenv("ORIGIN")
+compress_path=os.getenv("COMPRESS_PATH")
