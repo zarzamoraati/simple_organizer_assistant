@@ -116,7 +116,7 @@ def move_compressed_files(source:str,dest:str):
             if ext == ".7z":
                 full_path=join_path(source,basename)
                 try:
-                    Path.mkdir(dest,exist_ok=True)
+                    Path.mkdir(Path(dest),exist_ok=True)
                     shutil.move(full_path,dest)
                 except Exception as e :
-                    print(e)
+                    print("hello",e)
